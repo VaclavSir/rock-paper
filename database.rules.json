@@ -1,6 +1,43 @@
 {
   "rules": {
-    ".read": true,
-    ".write": true
+    "games": {
+      "$id": {
+        "type": {
+          ".validate": "newData.isNumber() && newData.val() == 0 || newData.isNumber() && newData.val() == 1",
+          ".write": "data.val() == null",
+          ".read": "true"
+        },
+        "challenger": {
+          ".validate": "newData.hasChildren(['name', 'hand'])",
+          "name": {
+            ".validate": "newData.isString()",
+            ".read": "true"
+          },
+          "hand": {
+            ".validate": "newData.isNumber() && (newData.val() == 0 || newData.val() == 1 || newData.val() == 2 || newData.parent().parent().child('type').val() == 1 && (newData.val() == 3 || newData.val() == 4))",
+            ".read": "data.parent().parent().child('acceptor').child('hand').val() != null"
+          },
+          "$other": {
+            ".validate": "false"
+          },
+          ".write": "data.val() == null && data.val() == null"
+        },
+        "acceptor": {
+          ".validate": "newData.hasChildren(['name', 'hand'])",
+          "name": {
+            ".validate": "newData.isString()",
+            ".read": "true"
+          },
+          "hand": {
+            ".validate": "newData.isNumber() && (newData.val() == 0 || newData.val() == 1 || newData.val() == 2 || newData.parent().parent().child('type').val() == 1 && (newData.val() == 3 || newData.val() == 4))",
+            ".read": "data.parent().parent().child('acceptor').child('hand').val() != null"
+          },
+          "$other": {
+            ".validate": "false"
+          },
+          ".write": "data.val() == null && data.val() == null"
+        }
+      }
+    }
   }
 }
