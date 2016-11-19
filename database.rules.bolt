@@ -3,16 +3,20 @@ path / {
 	write() { false }
 }
 
-path /games/{id}/type is RockPaperScissors | RockPaperScissorsLizardSpock {
+path /games/{id} is Game {
+}
+
+type Game {
+	type: GameType,
+	challenger: Attendee,
+	acceptor: Attendee | Null
+	create() { true }
+	read() { this.acceptor.hand != null }
+}
+
+type GameType extends Number {
+	validate() { this == 0 || this == 1 }
 	read() { true }
-	create() { true }
-}
-
-path /games/{id}/challenger is Attendee {
-	create() { true }
-}
-
-path /games/{id}/acceptor is Attendee {
 	create() { true }
 }
 
@@ -25,19 +29,12 @@ type Attendee {
 
 type PublicString extends String {
 	read() { true }
+	create() { true }
 }
 
 type Hand extends Number {
 	validate() {
 		this == 0 || this == 1 || this == 2 || (this.parent().parent().type == 1 && (this == 3 || this == 4))
 	}
-	read() { this.parent().parent().acceptor.hand != null }
-}
-
-type RockPaperScissors extends Number {
-	validate() { this == 0 }
-}
-
-type RockPaperScissorsLizardSpock extends Number {
-	validate() { this == 1 }
+	create() { true }
 }
