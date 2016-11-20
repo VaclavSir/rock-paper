@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
+    "firebase-bolt": "^0.8.1",
     "react-scripts": "0.7.0",
     "targaryen": "^2.3.1"
   },
@@ -15,6 +16,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "bolt": "firebase-bolt database.rules.bolt"
   }
 }
