@@ -1,4 +1,5 @@
-const targaryen = require('targaryen');
+import targaryen from 'targaryen';
+import databaseRules from './database.rules.json';
 
 beforeEach(function() {
 	jasmine.addMatchers(targaryen.jasmine.matchers);
@@ -26,7 +27,7 @@ beforeEach(function() {
 			}
 		}
 	});
-	targaryen.setFirebaseRules(require('./database.rules.json'));
+	targaryen.setFirebaseRules(databaseRules);
 });
 
 test('New game can be created.', () => {
