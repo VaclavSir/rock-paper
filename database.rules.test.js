@@ -6,6 +6,7 @@ beforeEach(function() {
 		"games": {
 			"newly-created": {
 				"type": 0,
+				"creationTime": 1479620231806,
 				"challenger": {
 					"name": "Itchy",
 					"hand": 2
@@ -13,6 +14,7 @@ beforeEach(function() {
 			},
 			"accepted": {
 				"type": 0,
+				"creationTime": 1479620231806,
 				"challenger": {
 					"name": "Itchy",
 					"hand": 0
@@ -32,6 +34,7 @@ test('New game can be created.', () => {
 		'games/123',
 		{
 			"type": 0,
+			"creationTime": {".sv": "timestamp"},
 			"challenger": {
 				"name": "Itchy",
 				"hand": 2
@@ -46,6 +49,7 @@ test('New game cannot change its challenge or type.', () => {
 	expect().cannotWrite('games/newly-created/challenger/name', "Poochie");
 	expect().cannotWrite('games/newly-created', {
 		"type": 0,
+		"creationTime": {".sv": "timestamp"},
 		"challenger": {
 			"name": "Itchy",
 			"hand": 2

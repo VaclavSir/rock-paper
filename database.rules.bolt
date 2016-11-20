@@ -10,6 +10,7 @@ type Game {
 	type: GameType,
 	challenger: Attendee,
 	acceptor: Attendee | Null
+	creationTime: CurrentTimestamp
 	create() { true }
 	read() { this.acceptor.hand != null }
 }
@@ -37,4 +38,8 @@ type Hand extends Number {
 		this == 0 || this == 1 || this == 2 || (this.parent().parent().type == 1 && (this == 3 || this == 4))
 	}
 	create() { true }
+}
+
+type CurrentTimestamp extends Number {
+  validate() { this == now }
 }

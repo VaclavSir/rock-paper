@@ -2,7 +2,7 @@
   "rules": {
     "games": {
       "$id": {
-        ".validate": "newData.hasChildren(['type', 'challenger'])",
+        ".validate": "newData.hasChildren(['type', 'challenger', 'creationTime'])",
         "type": {
           ".validate": "newData.isNumber() && (newData.val() == 0 || newData.val() == 1)",
           ".write": "data.val() == null",
@@ -39,6 +39,9 @@
             ".validate": "false"
           },
           ".write": "data.val() == null"
+        },
+        "creationTime": {
+          ".validate": "newData.isNumber() && newData.val() == now"
         },
         "$other": {
           ".validate": "false"
