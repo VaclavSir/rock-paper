@@ -1,4 +1,4 @@
-# Rock Paper
+# Rock Paper Backend
 
 An attempt to make an online game of [rock-paper-scissors](https://en.wikipedia.org/wiki/Rock%E2%80%93paper%E2%80%93scissors) using Firebase Realtime Database.
 
