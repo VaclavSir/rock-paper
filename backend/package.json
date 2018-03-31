@@ -3,10 +3,15 @@
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-jest": "^22.4.3",
+    "babel-preset-env": "^1.6.1",
     "firebase-bolt": "^0.8.1",
+    "jest": "^22.4.3",
     "targaryen": "^2.3.1"
   },
   "scripts": {
-    "bolt": "firebase-bolt database.rules.bolt"
+    "bolt": "firebase-bolt database.rules.bolt",
+    "test": "jest"
   }
 }
